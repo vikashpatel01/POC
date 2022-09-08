@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import axiosConfig from "../axiosConfig";
+import axiosConfig from "../../axiosConfig";
 import useOrder from "../hooks/useOrder";
 
 const OrderDetails = () => {
@@ -22,7 +22,7 @@ const OrderDetails = () => {
 
   const updateOrderDetails = () => {
     axiosConfig
-      .patch(`/${router.query.customerId}`, {
+      .patch(`/orders/${router.query.customerId}`, {
         customerName: foundOrder.customerName,
       })
       .then((res) => {
