@@ -59,7 +59,7 @@ export default function OrderListing() {
                         <Link
                           href={{
                             pathname: "/orderdetails",
-                            query: { customerId: order.customerId },
+                            query: { orderNumber: order.orderNumber },
                           }}
                           key={index}
                         >

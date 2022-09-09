@@ -5,7 +5,7 @@ import useOrder from "../hooks/useOrder";
 
 const OrderDetails = () => {
   const router = useRouter();
-  const { data: orderData } = useOrder(router.query.customerId);
+  const { data: orderData } = useOrder(router.query.orderNumber);
   const [foundOrder, setFoundOrder] = useState({
     customerName: "",
     customerId: "",
@@ -22,7 +22,7 @@ const OrderDetails = () => {
 
   const updateOrderDetails = () => {
     axiosConfig
-      .patch(`/orders/${router.query.customerId}`, {
+      .patch(`/orders/${router.query.orderNumber}`, {
         customerName: foundOrder.customerName,
       })
       .then((res) => {

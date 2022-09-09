@@ -1,11 +1,11 @@
 import axiosConfig from "../../axiosConfig";
 import { useQuery } from "react-query";
 
-export const fetchOrder = (customerId) =>
-  axiosConfig.get(`/orders/${customerId}`).then((res) => res.data);
+export const fetchOrder = (orderNumber) =>
+  axiosConfig.get(`/orders/${orderNumber}`).then((res) => res.data);
 
-export default function useOrder(customerId) {
-  return useQuery(["orders", customerId], () => fetchOrder(customerId), {
-    enabled: Boolean(customerId),
+export default function useOrder(orderNumber) {
+  return useQuery(["orders", orderNumber], () => fetchOrder(orderNumber), {
+    enabled: Boolean(orderNumber),
   });
 }
